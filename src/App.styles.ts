@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Container = styled.div`
     display: flex;
@@ -21,18 +21,22 @@ export const Container = styled.div`
 
 export const header = styled.h1`
     color: #FFF;
-    margin: 20px 0;
+    margin: -50px;
     font-size: 45px;
 `;
     
-
-export const searchInput = styled.input`
-    display: flex;
-    width: 300px;
+export const input = styled.input`
+   display: flex;
+   margin: 10px;
+   width: 200px;
+   height: 40px;
+   font-size: 15px;
+   border-radius: 5px;
 `;
 
 
 export const button = styled.button`
+    display: flex;
     padding: 10px;
     font-size: 15px;
     border: 0;

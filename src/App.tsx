@@ -1,59 +1,50 @@
-import { useState, useEffect } from "react";
-import * as C  from './App.styles';
-import {api} from './Api';
-import { metarType } from './types/metar'
-import { tafType } from './types/taf'
+import { useState, useEffect, ChangeEvent } from 'react';
+import {api} from './Api'
+import * as C from './App.styles'
 
 
 function App() {
-  
-  const [Metar, setMetar] = useState<metarType>({icao: ''});
-  const [Taf, setTaf] = useState<tafType>({icao: ''});
-  const [submit, setSubmit] = useState(false);
+const [Metar, setMetar] = useState('')
+const [Taf, setTaf] = useState('')
 
-  useEffect(() => {
-      loadMetar();
-      loadTaf()
-  },[Metar, Taf])
+useEffect(() => {
+  loadMetar();
+  loadTaf();
+},[])
 
-  
-  const loadMetar = async () => {
-      let json = await api.getMetar();
-      setMetar(json);
-}
-  
-  const loadTaf = async () => {
-      let json = await api.getTaf()
-      setTaf(json);
+
+const loadMetar = async () => {
+  let json = await api.getMetar();
+  setMetar(json);
 }
 
-  const handleSearchButton = (event: { preventDefault: () => void; }) => {
-    event.preventDefault()
-    setSubmit(true)
-  }
+const loadTaf = async () => {
+  let json = await api.getTaf();
+  setTaf(json);
+}
 
+const handleSearchButton = (e:ChangeEvent<HTMLFormElement>) => {
+  e.preventDefault()
+  setMetar(e.target.value)
+  setTaf(e.target.value)
+
+}
+  
   return (
     <C.Container>
-
-      <C.header><h1>
-        Aviation WX
-      </h1>
+      <C.header>
+        <h1>Aviation WX</h1>
       </C.header>
-      <div className="form-wx">
-        {submit && <div>Enviando informações</div>}
-      <form onSubmit={handleSearchButton} >
-        <fieldset>
-          <label>
-            <input type='text'/>
-          </label>
-        </fieldset>
-        <button type="submit">Buscar</button>
+      <form onSubmit={handleSearchButton}>
+      <C.input type="text"
+      placeholder='Digite o código ICAO'
+       />
       </form>
       {Metar && JSON.stringify(Metar)}
-      </div>
-        
+      {Taf && JSON.stringify(Taf)}
+      <C.button>Buscar</C.button>
     </C.Container>
   );
-
 }
+
 export default App;
