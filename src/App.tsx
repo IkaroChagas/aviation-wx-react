@@ -1,20 +1,20 @@
-import { ChangeEvent, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import * as C  from './App.styles';
 import {api} from './Api';
 import { metarType } from './types/metar'
 import { tafType } from './types/taf'
 
-function App() {
-  const params = useParams();
 
-  const [Metar, setMetar] = useState<metarType>({icao: '', raw_text: ''});
-  const [Taf, setTaf] = useState<tafType>({icao: '', raw_text: ''});
+function App() {
   
-  useEffect(( ) => {
-    loadMetar();
-    loadTaf()
-  },[])
+  const [Metar, setMetar] = useState<metarType>({icao: ''});
+  const [Taf, setTaf] = useState<tafType>({icao: ''});
+  const [submit, setSubmit] = useState(false);
+
+  useEffect(() => {
+      loadMetar();
+      loadTaf()
+  },[Metar, Taf])
 
   
   const loadMetar = async () => {
@@ -27,27 +27,33 @@ function App() {
       setTaf(json);
 }
 
-  const handleSearchButton = (e:ChangeEvent<HTMLButtonElement>) => {
-       setMetar(e.target.value)
-       setTaf(e.target.value)    
-}
+  const handleSearchButton = (event: { preventDefault: () => void; }) => {
+    event.preventDefault()
+    setSubmit(true)
+  }
 
   return (
     <C.Container>
-        <C.header>Aviation WX</C.header>
 
-        <C.searchInput width={300}
-         className="searchInfo"
-         type="text" value={Metar && Taf}
-         placeholder="Digite o código ICAO">
-         </C.searchInput>
-         <C.Button onChange={handleSearchButton}>Buscar</C.Button>
+      <C.header><h1>
+        Aviation WX
+      </h1>
+      </C.header>
+      <div className="form-wx">
+        {submit && <div>Enviando informações</div>}
+      <form onSubmit={handleSearchButton} >
+        <fieldset>
+          <label>
+            <input type='text'/>
+          </label>
+        </fieldset>
+        <button type="submit">Buscar</button>
+      </form>
+      {Metar && JSON.stringify(Metar)}
+      </div>
         
     </C.Container>
   );
-
-  // 1 - npm run build
-  // 2- npm install -g serve serve -s build
 
 }
 export default App;
