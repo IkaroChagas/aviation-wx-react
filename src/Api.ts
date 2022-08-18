@@ -11,14 +11,16 @@ const authAxios = axios.create({
 
 export const api = {
     getMetar: async () => {
-        let response = await authAxios.get(`/metar/${('')}/decoded`)
-            return response.data;
+        let response = await authAxios.get(`/metar/${('')}/`)
+            return response.data
     },
+    
             
     getTaf: async () => {
-        let response = await authAxios.get(`/taf/${('')}/decoded`)
+        let response = await authAxios.get(`/taf/${('')}/`)
             return response.data;
     }
+    
 
 }
         
