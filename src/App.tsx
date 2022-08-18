@@ -4,8 +4,8 @@ import * as C from './App.styles'
 
 
 function App() {
-const [Metar, setMetar] = useState('')
-const [Taf, setTaf] = useState('')
+const [metar, setMetar] = useState('');
+const [taf, setTaf] = useState('');
 
 useEffect(() => {
   loadMetar();
@@ -23,11 +23,18 @@ const loadTaf = async () => {
   setTaf(json);
 }
 
-const handleSearchButton = (e:ChangeEvent<HTMLFormElement>) => {
-  e.preventDefault()
-  setMetar(e.target.value)
-  setTaf(e.target.value)
+const handleChangeButton = (e:ChangeEvent<HTMLInputElement>) => {
+  let value = e.target.value
+  setMetar(value)
+  setTaf(value)
+}
 
+const showData = () => {
+  console.log('NOME', metar && taf)
+}
+
+const handleSubmit = (e:ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault()
 }
   
   return (
@@ -35,14 +42,18 @@ const handleSearchButton = (e:ChangeEvent<HTMLFormElement>) => {
       <C.header>
         <h1>Aviation WX</h1>
       </C.header>
-      <form onSubmit={handleSearchButton}>
-      <C.input type="text"
+      <form onSubmit={handleSubmit}>
+        <label>
+      <C.input onChange={handleChangeButton} type="text" value={metar && taf}
       placeholder='Digite o código ICAO'
        />
+       </label>
+       <div>
+       <C.button onClick={showData}>Buscar</C.button>
+       </div>
       </form>
-      {Metar && JSON.stringify(Metar)}
-      {Taf && JSON.stringify(Taf)}
-      <C.button>Buscar</C.button>
+      
+      
     </C.Container>
   );
 }
