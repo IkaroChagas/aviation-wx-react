@@ -6,14 +6,14 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: url(https://ikarochagas.github.io/Aviation-WX/images/clouds.jpg);
+    background: url(/images/clouds.jpg);
     background-size: cover;
     font-weight: bold;
     font-size: 18px;
     color: #FFF;
     background-blend-mode: darken;
     background-color: rgba(0, 0, 0, 0.75);
-    font-family: 'Lato', sans-serif;
+    font-family: sans-serif;
     box-sizing: border-box;
 `;
 
