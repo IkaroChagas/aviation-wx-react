@@ -9,13 +9,12 @@ export const Container = styled.div`
     background: url(https://ikarochagas.github.io/Aviation-WX/images/clouds.jpg);
     background-size: cover;
     font-weight: bold;
+    font-size: 18px;
     color: #FFF;
     background-blend-mode: darken;
     background-color: rgba(0, 0, 0, 0.75);
     font-family: 'Lato', sans-serif;
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 `;
 
 
@@ -26,8 +25,8 @@ export const header = styled.h1`
 `;
     
 export const input = styled.input`
-   display: flex;
-   margin: 10px;
+   display: block;
+   margin: auto;
    width: 200px;
    height: 40px;
    font-size: 15px;
@@ -39,13 +38,28 @@ export const button = styled.button`
     display: flex;
     padding: 10px;
     font-size: 15px;
+    margin: auto;
+    margin-top: 20px;
     border: 0;
     background-color: #555;
     color: #FFF;
     border-radius: 5px;
-    margin-left: 10px;
     cursor: pointer;
 `;
+
+export const msg = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+`;
+
+export const textmetar = styled.div`
+    margin: auto;
+`
+export const texttaf = styled.div`
+    margin: auto;
+    margin-left: 26px;
+`
 
 
 

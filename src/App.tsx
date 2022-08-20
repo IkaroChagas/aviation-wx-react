@@ -1,51 +1,48 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { authAxios } from './Api'
 import * as C from './App.styles'
 
 
 function App() {
 const [icao, setIcao] = useState('')
-const [metar, setMetar] = useState(null);
-const [taf, setTaf] = useState(null);
+const [metar, setMetar] = useState<any>([]);
+const [taf, setTaf] = useState<any>([]);
 
 
-const getMetar = async (icao: string) => {
-  const metar = await authAxios.get(`/metar/${icao}`);
-      return metar;
-}
-      
-const getTaf = async (icao: string) => {
-  const taf = await authAxios.get(`/taf/${icao}`);
-      return taf;
+const handleShowResult = async () => {
+  const metarData = await authAxios.get(`/metar/${icao}/`);
+  const tafData = await authAxios.get(`/taf/${icao}/`);
+      setMetar(metarData.data)
+      setTaf(tafData.data)
+      setIcao('')
 }
 
-const handleShowResult = () => {
-  getMetar(icao).then((res) => {
-    setMetar(res.data)
-  });
-
-  getTaf(icao).then((res) => {
-    setTaf(res.data)
-  });
+const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
+  const icao = e.target.value;
+  setIcao(icao)
 }
 
-
-const handleChange = (e:any) => {
-}
-  
   return (
     <C.Container>
       <C.header>
         <h1>Aviation WX</h1>
       </C.header>
         <label>
-      <C.input onChange={handleChange} value={icao}
+      <C.input onChange={handleChange} value={icao} 
       placeholder='Digite o código ICAO'/>
       <C.button onClick={handleShowResult}>Buscar</C.button>
-      
-      {JSON.stringify(metar, null, 2)}
-      {JSON.stringify(taf, null, 2)}
-      
+       <C.msg>
+        {metar &&
+        <>
+        <C.textmetar><p>{metar.data}</p></C.textmetar>
+        </> 
+        }
+       {taf &&
+        <>
+        <C.texttaf><p>{taf.data}</p></C.texttaf>
+        </> 
+        }
+       </C.msg>
        </label>
     </C.Container>
   );
