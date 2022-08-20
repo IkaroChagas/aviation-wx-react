@@ -1,40 +1,36 @@
-import { useState, useEffect, ChangeEvent } from 'react';
-import {api} from './Api'
+import { useState } from 'react';
+import { authAxios } from './Api'
 import * as C from './App.styles'
 
 
 function App() {
-const [metar, setMetar] = useState('');
-const [taf, setTaf] = useState('');
-
-useEffect(() => {
-  loadMetar();
-  loadTaf();
-},[])
+const [icao, setIcao] = useState('')
+const [metar, setMetar] = useState(null);
+const [taf, setTaf] = useState(null);
 
 
-const loadMetar = async () => {
-  let json = await api.getMetar();
-  setMetar(json);
+const getMetar = async (icao: string) => {
+  const metar = await authAxios.get(`/metar/${icao}`);
+      return metar;
+}
+      
+const getTaf = async (icao: string) => {
+  const taf = await authAxios.get(`/taf/${icao}`);
+      return taf;
 }
 
-const loadTaf = async () => {
-  let json = await api.getTaf();
-  setTaf(json);
+const handleShowResult = () => {
+  getMetar(icao).then((res) => {
+    setMetar(res.data)
+  });
+
+  getTaf(icao).then((res) => {
+    setTaf(res.data)
+  });
 }
 
-const handleChangeButton = (e:ChangeEvent<HTMLInputElement>) => {
-  let value = e.target.value
-  setMetar(value)
-  setTaf(value)
-}
 
-const showData = () => {
-  console.log('NOME', metar && taf)
-}
-
-const handleSubmit = (e:ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault()
+const handleChange = (e:any) => {
 }
   
   return (
@@ -42,18 +38,15 @@ const handleSubmit = (e:ChangeEvent<HTMLFormElement>) => {
       <C.header>
         <h1>Aviation WX</h1>
       </C.header>
-      <form onSubmit={handleSubmit}>
         <label>
-      <C.input onChange={handleChangeButton} type="text" value={metar && taf}
-      placeholder='Digite o código ICAO'
-       />
+      <C.input onChange={handleChange} value={icao}
+      placeholder='Digite o código ICAO'/>
+      <C.button onClick={handleShowResult}>Buscar</C.button>
+      
+      {JSON.stringify(metar, null, 2)}
+      {JSON.stringify(taf, null, 2)}
+      
        </label>
-       <div>
-       <C.button onClick={showData}>Buscar</C.button>
-       </div>
-      </form>
-      
-      
     </C.Container>
   );
 }
