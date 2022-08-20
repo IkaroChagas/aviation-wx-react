@@ -1,46 +1,64 @@
-# Getting Started with Create React App
+# Aviation-WX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Projeto feito com ReactJS (CRA)
+## Biblioteca utilizada: Styled-Components
+## Método de requisição: Axios
 
-## Available Scripts
+</br>
 
-In the project directory, you can run:
+## Entenda um pouco sobre o meu projeto:
 
-### `npm start`
+pt-BR
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+O projeto foi desenvovido para ser utilizado em ambiente real na aviação, os pilotos podem consultar de forma instântanea as mensagens meteorológicas (METAR e TAF) de um determinado aeroporto, com a finalidade de promover a segurança operacional. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Todos os dados são cansumidos da API: https://www.checkwxapi.com/
 
-### `npm test`
+O que é o METAR? 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+METAR (Meteorological Aerodrome Report) é um relatório meteorológico de um determinado aeroporto, interpretado através de alfabeto fonético,
+e é utilizado diariamente na aviação mundial, é mandatória as consultas das condições, para a segurança de voo.
 
-### `npm run build`
+O que é o TAF?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+TAF (Terminal Aerodrome Forecast) assim como o METAR o TAF também serve para consulta, a principal diferença é que a mensagem tem uma validade maior, enquanto o METAR é emitido a cada 60 minutos, o TAF é emitido para valer por períodos maiores, em alguns aeroportos o TAF tem validade de até 72 horas.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Informações detalhadas sobre o METAR: https://skybrary.aero/articles/meteorological-terminal-air-report-metar
 
-### `npm run eject`
+Informações detalhadas sobre o TAF : https://skybrary.aero/articles/weather-forecast
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+en-US
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project made with ReactJS (CRA)
+## Library used: Styled-Components
+## Request method: Axios
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+</br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Understand a little about my project:
 
-## Learn More
+The project was developed to be used in a real aviation environment, pilots can instantly consult the meteorological messages (METAR and TAF) of a specific airport, in order to promote operational safety.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+All data is taken from the API: https://www.checkwxapi.com/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+What is METAR?
+
+METAR (Meteorological Aerodrome Report) is a meteorological report of a specific airport, interpreted through the phonetic alphabet,
+and is used in the world hand, conditions are mandatory, for safety.
+
+What is TAF?
+
+TAF (Terminal Aerodrome Forecast) as well as the METAR, the TAF also serves for consultation, the main difference is that the message has a longer validity, while the METAR is every 60 minutes, the TAF is published for longer periods, in some airports, the TAF is valid for up to 72 hours.
+
+
+METAR information: https://skybrary.aeroarticles/meteorological-terminal-air-report-metar
+
+TAF info: https://skybrary.aero/articles/weather-forecast
+
+
+## Executar o projeto:
+
+</br>
+
+# npm start
