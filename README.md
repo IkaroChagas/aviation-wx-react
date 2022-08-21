@@ -2,7 +2,7 @@
 
 ## Projeto feito com ReactJS (CRA)
 ## Biblioteca utilizada: Styled-Components
-## Método de requisição: Axios
+## Requisição: Axios
 
 </br>
 
@@ -36,11 +36,11 @@ en-US
 
 ## Project made with ReactJS (CRA)
 ## Library used: Styled-Components
-## Request method: Axios
+## Request: Axios
 
 </br>
 
-## Understand a little about my project:
+## Understand about my project:
 
 The project was developed to be used in a real aviation environment, pilots can instantly consult the meteorological messages (METAR and TAF) of a specific airport, in order to promote operational safety.
 
