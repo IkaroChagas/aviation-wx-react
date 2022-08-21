@@ -4,17 +4,19 @@ import * as C from './App.styles'
 
 
 function App() {
-const [icao, setIcao] = useState('')
+const [icao, setIcao] = useState('');
 const [metar, setMetar] = useState<any>([]);
 const [taf, setTaf] = useState<any>([]);
-
+const [loading, setLoading] = useState(false);
 
 const handleShowResult = async () => {
+      setLoading(true)
   const metarData = await authAxios.get(`/metar/${icao}/`);
   const tafData = await authAxios.get(`/taf/${icao}/`);
       setMetar(metarData.data)
       setTaf(tafData.data)
       setIcao('')
+      setLoading(false)
 }
 
 const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +34,8 @@ const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
       placeholder='Digite o código ICAO'/>
       <C.button onClick={handleShowResult}>Buscar</C.button>
        <C.msg>
-        {metar &&
+        <C.load>{loading && 'Carregando...'}</C.load>
+        {metar && 
         <>
         <C.textmetar><p>{metar.data}</p></C.textmetar>
         </> 
