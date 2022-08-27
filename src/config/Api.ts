@@ -5,7 +5,7 @@ const baseURL = "https://api.checkwx.com";
 export const authAxios = axios.create({
     baseURL: baseURL,
     headers: {
-        "X-API-Key": "f774f00a63134a5c9e4ea3681b"
+        "X-API-Key": `${process.env.REACT_APP_API_KEY}`
     },
 });
 

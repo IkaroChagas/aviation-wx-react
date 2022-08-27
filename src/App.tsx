@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { authAxios } from './Api'
+import { authAxios } from './config/Api'
 import * as C from './App.styles'
 
 
