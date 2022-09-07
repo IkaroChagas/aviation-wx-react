@@ -6,6 +6,14 @@
 
 </br>
 
+## Executar o projeto:
+
+</br>
+
+# npm install
+
+# npm start
+
 ## Deploy: https://aviation-wx-react.vercel.app/
 
 </br>
@@ -14,9 +22,24 @@
 
 pt-BR
 
-O projeto foi desenvovido para ser utilizado em ambiente real na aviação, os pilotos podem consultar de forma instântanea as mensagens meteorológicas (METAR e TAF) de um determinado aeroporto, com a finalidade de promover a segurança operacional. 
+O projeto foi desenvovido para ser utilizado em ambiente real na aviação, os pilotos podem consultar de forma instântanea as mensagens meteorológicas (METAR e TAF) de um determinado aeroporto através do código ICAO do aeroporto em específico, com a finalidade de promover a segurança operacional. 
+
+</br>
+
+## Para buscar rodar a aplicação com as mensagens meteorológicas:
+</br>
+
+Abaixo o link com a lista de aeroportos brasileiros com seus respectivos códigos ICAO para a consulta:
+
+https://pt.wikipedia.org/wiki/Lista_de_aeroportos_do_Brasil_por_c%C3%B3digo_aeroportu%C3%A1rio_ICAO
+
+</br>
+
+PS: Basta colocar no input o código ICAO e clicar em buscar que a requisição irá ocorrer.
 
 Todos os dados são cansumidos da API: https://www.checkwxapi.com/
+
+</br>
 
 O que é o METAR? 
 
@@ -32,37 +55,4 @@ Informações detalhadas sobre o METAR: https://skybrary.aero/articles/meteorolo
 
 Informações detalhadas sobre o TAF : https://skybrary.aero/articles/weather-forecast
 
-en-US
 
-## Project made with ReactJS (CRA)
-## Library used: Styled-Components
-## Request: Axios
-
-</br>
-
-## Understand about my project:
-
-The project was developed to be used in a real aviation environment, pilots can instantly consult the meteorological messages (METAR and TAF) of a specific airport, in order to promote operational safety.
-
-All data is taken from the API: https://www.checkwxapi.com/
-
-What is METAR?
-
-METAR (Meteorological Aerodrome Report) is a meteorological report of a specific airport, interpreted through the phonetic alphabet,
-and is used in the world hand, conditions are mandatory, for safety.
-
-What is TAF?
-
-TAF (Terminal Aerodrome Forecast) as well as the METAR, the TAF also serves for consultation, the main difference is that the message has a longer validity, while the METAR is every 60 minutes, the TAF is published for longer periods, in some airports, the TAF is valid for up to 72 hours.
-
-
-METAR information: https://skybrary.aeroarticles/meteorological-terminal-air-report-metar
-
-TAF info: https://skybrary.aero/articles/weather-forecast
-
-
-## Executar o projeto:
-
-</br>
-
-# npm start
