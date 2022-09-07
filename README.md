@@ -24,7 +24,7 @@ O projeto foi desenvovido para ser utilizado em ambiente real na aviação, os p
 
 </br>
 
-## Para buscar rodar a aplicação com as mensagens meteorológicas:
+## Para rodar a aplicação com as mensagens meteorológicas:
 </br>
 
 Abaixo o link com a lista de aeroportos brasileiros com seus respectivos códigos ICAO para a consulta:
