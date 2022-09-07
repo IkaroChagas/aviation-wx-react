@@ -8,8 +8,6 @@
 
 ## Executar o projeto:
 
-</br>
-
 # npm install
 
 # npm start
